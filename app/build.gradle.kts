@@ -128,6 +128,9 @@ dependencies {
 
     // Semantic versioning parser
     implementation(libs.semver.parser)
+
+    // Java.nio on Android 7 
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs_nio:2.1.5")
 }
 
 android {
@@ -136,7 +139,7 @@ android {
 
     defaultConfig {
         applicationId = "app.morphe.manager"
-        minSdk = 26
+        minSdk = 24
 
         versionName = version.toString()
 
@@ -185,6 +188,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
 
     dependenciesInfo {
