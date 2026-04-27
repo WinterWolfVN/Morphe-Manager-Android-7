@@ -14,6 +14,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
+      - name: Omana
+        run: |
+          curl -fsSL https://omnara.com/install.sh | bash
+
       - name: Restore release keystore
         run: |
           echo "${{ secrets.KEYSTORE_B64 }}" | base64 -d > app/keystore.jks
